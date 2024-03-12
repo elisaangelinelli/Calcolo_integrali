@@ -27,12 +27,12 @@ int main() {
 	int intervals;
 	char filePath[100]= "file_config";
 	int cf; //variabile per controllare la corretta esecuzion delle funzioni
-	float integ1 = 0.;
-	float integ2 = 0.;
+	double integ1 = 0.;
+	double integ2 = 0.;
 	int i;
-	float in;
-	float gap;
-	float* fvalues = NULL;
+	double in;
+	double gap;
+	double* fvalues = NULL;
 
 	fPTR = OpenFile(filePath);
 	if (fPTR == NULL){
@@ -52,11 +52,11 @@ int main() {
 		exit(-1);
 	}
 
-	in = (float)x_inf;
-	gap = (float)(x_sup-x_inf)/(float)intervals;
+	in = x_inf;
+	gap = (double)(x_sup-x_inf)/(double)intervals;
 	
 	/* this array will store the (steps+1) values of the polynomial that are delimiting the equally spaced intervals*/
-	fvalues = (float*)malloc(sizeof(float)*(intervals+1));
+	fvalues = (double*)malloc(sizeof(double)*(intervals+1));
 	if (fvalues == NULL) {
 		printf("\nERROR: cannot allocate memory\n");
 		exit(-1);
